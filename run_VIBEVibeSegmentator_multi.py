@@ -174,7 +174,7 @@ def validate_seg(nii: NII | Path, path_seg: Path, save_prob=False, aggressivenes
     nii = to_nii_seg(nii)
     path = path_seg.parent
     logger = Print_Logger()
-    arrs, dicts = nii.get_connected_components(nii.unique())
+    arrs, dicts = nii.get_segmentation_connected_components(nii.unique())
     for idx, n_cc in dicts.items():
         problem = False
         target = labels[idx]

@@ -1,0 +1,29 @@
+# Configuration file for whole-body segmentation pipeline
+
+# Sample IDs to process (should match directory names in input_data/)
+samples:
+  - AA21-02-2019
+  - AA05-07-2017
+  - AA03-02-2014
+
+# Conda environment names
+# Make sure these environments are set up before running
+conda_envs:
+  vibesegmentator: VIBESegmentator
+  totalsegmentator: totalseg
+
+# Directories
+directories:
+  input: input_data
+  results: results
+
+# Parameters
+parameters:
+  # Fat fraction threshold for filling holes
+  ff_threshold: 0.7
+  # Label for subcutaneous fat
+  fat_label: 65
+  # Label for VAT (used in combine step)
+  vat_label: 200
+  # Device for VIBESegmentator (cuda or cpu)
+  device: cuda
